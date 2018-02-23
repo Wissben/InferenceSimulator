@@ -37,11 +37,17 @@ class Formula:
     def getType(self):
         return self.__type
 
-    def getIdf(self):
+    def getIdf(self,auto=True):
         if self.isLiteral():
-            return str(self.__idf)
+            if auto:
+                return str(self.__idf)
+            else:
+                return self.getP()
         elif self.getType() == "NOT":
-            return "-"+str(self.getP().getIdf())
+            if auto:
+                return "-"+str(self.getP().getIdf())
+            else:
+                return "-"+self.getP().getP()
         else:
             return 0
 

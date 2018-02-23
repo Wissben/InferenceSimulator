@@ -18,12 +18,17 @@ def getCNF(string):
 
     return transformer.getFormula().getClauses()
 
-def getDIMACS(string):
+# header = true to include DIMACS header
+# autoIdf = true to auto assign identifiers from 1 to number of variables
+# note if autoIdf = false, variables names must be numbers
+def getDIMACS(string,header=True,autoIdf=True):
     clauses = getCNF(string)
-    result = "p cnf " + str(Formula.idfCount) + " " + str(len(clauses)) + "\n"
+    result = ""
+    if header:
+        result = "p cnf " + str(Formula.idfCount) + " " + str(len(clauses)) + "\n"
     for clause in clauses:
         s = ""
         for literal in clause:
-            s += literal.getIdf() + " "
+            s += literal.getIdf(autoIdf) + " "
         result += s + "0\n"
     return result
