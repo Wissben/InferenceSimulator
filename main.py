@@ -49,4 +49,4 @@ wfile.close()
 file.close()
 outF.close()
 #Run the SAT solver with the new KB
-os.system(" ./ubcsat -alg saps -solve -i new.cnf" )
+os.system(" ./ubcsat -alg saps -solve -i newBase.cnf" )
