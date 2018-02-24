@@ -6,7 +6,7 @@ This project is in collaboration with [ressay](https://github.com/ressay) and it
   `sudo pip install antlr4-python2-runtime`
 * The `UBCSAT` SAT solver, you can find it [here](http://ubcsat.dtompkins.com/downloads)
  ## Utilisation 
- To start the inference engine just launch the `main.py` script with in its arguments : 
+ To start the inference engine just launch the `main.py` script with its arguments : 
   * The knowledge base in its [DIMACS](http://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html) format.
   * The propositional logic formula betweet `" "` using the logical connectors and parentheses : 
     * `->` logical implication.
@@ -25,6 +25,6 @@ This project is in collaboration with [ressay](https://github.com/ressay) and it
   `2 v 1`
   The command would be : <br />
   `python main.py input.cnf "-(2 v 1)"`<br />
-  If the SAT solver can't find any solution to this instance, then we can conclude that **F** is a logical consequence of the knowledge base in input.
+  If the SAT solver can't find any solution to this instance, then we can conclude that **F** is a logical consequence of the knowledge base in input (**KNOWLEDGE BASE => F**).
   ## Credit 
   Made with :heart: by [Ressay](https://github.com/ressay) and [Wiss](https://github.com/Wissben). 
