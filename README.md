@@ -8,6 +8,7 @@ This project is in collaboration with [ressay](https://github.com/ressay) and it
  ## Utilisation 
  To start the inference engine just launch the `main.py` script with its arguments : 
   * The knowledge base in its [DIMACS](http://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html) format.
+  * The new knowledge base also in the DIMACS format
   * The propositional logic formula betweet `" "` using the logical connectors and parentheses : 
     * `->` logical implication.
     * `<->` logical equivalence.
