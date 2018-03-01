@@ -2,6 +2,8 @@ import os
 import sys
 import re
 import shutil
+import FormulaToCNF
+
 #####################################
 #Function to return the number of distinc values in a valid CNF format file
 def distinctOccurInFile(outLines):
@@ -16,19 +18,19 @@ def distinctOccurInFile(outLines):
     return(len(allVar))
 ######################################
 
-import FormulaToCNF
 #insert here any propositional logic formula
-dimacs = FormulaToCNF.getDIMACS(sys.argv[2],False,False)
+dimacs = FormulaToCNF.getDIMACS(sys.argv[3],False,False)
 print dimacs
 outF = open("out.cnf", "w+r")
 outF.write(dimacs)
 outF.seek(0)
 
 inPutFile = str(sys.argv[1])
+outPutFile = str(sys.argv[2])
 #Opening the file where the knowledge base is to read it
 file = open(inPutFile,"r")
 #Opening the output file which will containt the KB and the negation of the formula in CNF
-wfile = open("new.cnf","w")
+wfile = open(outPutFile+".cnf","w+")
 #Var to store the file new.cnf
 outLines=[]
 for line in file.readlines():
@@ -39,7 +41,7 @@ for line in outF.readlines():
 #Modifying the header of the file to adjust the number of Variables/Clauses depending on the input formula
 splitF = re.split("\s+",outLines[0]);
 if len(sys.argv)>2 :
-    splitF[3] = str(int(splitF[3])+len(sys.argv)-2)
+    splitF[3] = str(int(splitF[3])+len(sys.argv)-3)
 splitF[2]=str(distinctOccurInFile(outLines))
 outLines[0]=" ".join(splitF)+"\n"
 #Writing the new KB into the new.cnf file
@@ -49,4 +51,4 @@ wfile.close()
 file.close()
 outF.close()
 #Run the SAT solver with the new KB
-os.system(" ./ubcsat -alg saps -solve -i newBase.cnf" )
+os.system(" ./ubcsat -alg saps -solve -i "+outPutFile+".cnf")
