@@ -1,5 +1,5 @@
 # InferenceSimulator
-This project is in collaboration with [ressay](https://github.com/ressay) and it's basically a minor fork of his [repository](ressay), thanks to him who did the important part of converting a propositional logic formula into its CNF form, more specifically into the [DIMACS](http://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html) format.
+This project is in collaboration with [ressay](https://github.com/ressay) and it's basically a minor fork of his [repository](https://github.com/ressay/FBFToCNF), thanks to him who did the important part of converting a propositional logic formula into its CNF form, more specifically into the [DIMACS](http://people.sc.fsu.edu/~jburkardt/data/cnf/cnf.html) format.
  ## Dpenendencies 
 * You will need to install [Python](https://python.org), we used **Python2.7** in our tests.
 * You will also need to install the `antlr4-python2-runtime` python package via `pip` withe following command     
